@@ -40,11 +40,13 @@
 
 #include "Definitions.h"
 
-namespace RVO {
+namespace RVO
+{
 	/**
 	 * \brief      Defines static obstacles in the simulation.
 	 */
-	class Obstacle {
+	class Obstacle
+	{
 	private:
 		/**
 		 * \brief      Constructs a static obstacle instance.

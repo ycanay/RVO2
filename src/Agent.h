@@ -41,11 +41,13 @@
 #include "Definitions.h"
 #include "RVOSimulator.h"
 
-namespace RVO {
+namespace RVO
+{
 	/**
 	 * \brief      Defines an agent in the simulation.
 	 */
-	class Agent {
+	class Agent
+	{
 	private:
 		/**
 		 * \brief      Constructs an agent instance.
@@ -87,15 +89,15 @@ namespace RVO {
 		void update();
 
 		/**
-		 * @brief Create obstacle ORCA lines 
-		 * 
+		 * @brief Create obstacle ORCA lines
+		 *
 		 * @param invTimeHorizonObst time horizon for obstacles
 		 */
 		void createOrcaLinesObst(const float invTimeHorizonObst);
 
 		/**
 		 * @brief Create agent ORCA lines
-		 * 
+		 *
 		 * @param invTimeHorizon time horizon for agents
 		 */
 		void createOrcaLinesAgent(const float invTimeHorizon);

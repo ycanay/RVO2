@@ -45,7 +45,8 @@
 #include "Export.h"
 #include "Vector2.h"
 
-namespace RVO {
+namespace RVO
+{
 	/**
 	 * \brief       Error value.
 	 *
@@ -57,7 +58,8 @@ namespace RVO {
 	/**
 	 * \brief      Defines a directed line.
 	 */
-	class RVO_EXPORT Line {
+	class RVO_EXPORT Line
+	{
 	public:
 		/**
 		 * \brief     A point on the directed line.
@@ -79,7 +81,8 @@ namespace RVO {
 	 *
 	 * The main class of the library that contains all simulation functionality.
 	 */
-	class RVO_EXPORT RVOSimulator {
+	class RVO_EXPORT RVOSimulator
+	{
 	public:
 		/**
 		 * \brief      Constructs a simulator instance.
@@ -266,7 +269,6 @@ namespace RVO {
 		 *             compute the current velocity for the specified agent.
 		 */
 		size_t getAgentNumObstacleNeighbors(size_t agentNo) const;
-
 
 		/**
 		 * \brief      Returns the count of ORCA constraints used to compute

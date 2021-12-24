@@ -40,7 +40,8 @@
 #include <omp.h>
 #endif
 
-namespace RVO {
+namespace RVO
+{
 	RVOSimulator::RVOSimulator() : defaultAgent_(NULL), globalTime_(0.0f), kdTree_(NULL), timeStep_(0.0f)
 	{
 		kdTree_ = new KdTree(this);
@@ -62,15 +63,18 @@ namespace RVO {
 
 	RVOSimulator::~RVOSimulator()
 	{
-		if (defaultAgent_ != NULL) {
+		if (defaultAgent_ != NULL)
+		{
 			delete defaultAgent_;
 		}
 
-		for (size_t i = 0; i < agents_.size(); ++i) {
+		for (size_t i = 0; i < agents_.size(); ++i)
+		{
 			delete agents_[i];
 		}
 
-		for (size_t i = 0; i < obstacles_.size(); ++i) {
+		for (size_t i = 0; i < obstacles_.size(); ++i)
+		{
 			delete obstacles_[i];
 		}
 
@@ -79,7 +83,8 @@ namespace RVO {
 
 	size_t RVOSimulator::addAgent(const Vector2 &position)
 	{
-		if (defaultAgent_ == NULL) {
+		if (defaultAgent_ == NULL)
+		{
 			return RVO_ERROR;
 		}
 
@@ -123,32 +128,38 @@ namespace RVO {
 
 	size_t RVOSimulator::addObstacle(const std::vector<Vector2> &vertices)
 	{
-		if (vertices.size() < 2) {
+		if (vertices.size() < 2)
+		{
 			return RVO_ERROR;
 		}
 
 		const size_t obstacleNo = obstacles_.size();
 
-		for (size_t i = 0; i < vertices.size(); ++i) {
+		for (size_t i = 0; i < vertices.size(); ++i)
+		{
 			Obstacle *obstacle = new Obstacle();
 			obstacle->point_ = vertices[i];
 
-			if (i != 0) {
+			if (i != 0)
+			{
 				obstacle->prevObstacle_ = obstacles_.back();
 				obstacle->prevObstacle_->nextObstacle_ = obstacle;
 			}
 
-			if (i == vertices.size() - 1) {
+			if (i == vertices.size() - 1)
+			{
 				obstacle->nextObstacle_ = obstacles_[obstacleNo];
 				obstacle->nextObstacle_->prevObstacle_ = obstacle;
 			}
 
 			obstacle->unitDir_ = normalize(vertices[(i == vertices.size() - 1 ? 0 : i + 1)] - vertices[i]);
 
-			if (vertices.size() == 2) {
+			if (vertices.size() == 2)
+			{
 				obstacle->isConvex_ = true;
 			}
-			else {
+			else
+			{
 				obstacle->isConvex_ = (leftOf(vertices[(i == 0 ? vertices.size() - 1 : i - 1)], vertices[i], vertices[(i == vertices.size() - 1 ? 0 : i + 1)]) >= 0.0f);
 			}
 
@@ -167,7 +178,8 @@ namespace RVO {
 #ifdef _OPENMP
 #pragma omp parallel for
 #endif
-		for (int i = 0; i < static_cast<int>(agents_.size()); ++i) {
+		for (int i = 0; i < static_cast<int>(agents_.size()); ++i)
+		{
 			agents_[i]->computeNeighbors();
 			agents_[i]->computeNewVelocity();
 		}
@@ -175,7 +187,8 @@ namespace RVO {
 #ifdef _OPENMP
 #pragma omp parallel for
 #endif
-		for (int i = 0; i < static_cast<int>(agents_.size()); ++i) {
+		for (int i = 0; i < static_cast<int>(agents_.size()); ++i)
+		{
 			agents_[i]->update();
 		}
 
@@ -304,7 +317,8 @@ namespace RVO {
 
 	void RVOSimulator::setAgentDefaults(float neighborDist, size_t maxNeighbors, float timeHorizon, float timeHorizonObst, float radius, float maxSpeed, const Vector2 &velocity)
 	{
-		if (defaultAgent_ == NULL) {
+		if (defaultAgent_ == NULL)
+		{
 			defaultAgent_ = new Agent(this);
 		}
 

@@ -4,3 +4,4 @@
 /build/
 /bazel-*
 /.vscode
+src/.prettierrc

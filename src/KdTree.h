@@ -40,17 +40,20 @@
 
 #include "Definitions.h"
 
-namespace RVO {
+namespace RVO
+{
 	/**
 	 * \brief      Defines <i>k</i>d-trees for agents and static obstacles in the
 	 *             simulation.
 	 */
-	class KdTree {
+	class KdTree
+	{
 	private:
 		/**
 		 * \brief      Defines an agent <i>k</i>d-tree node.
 		 */
-		class AgentTreeNode {
+		class AgentTreeNode
+		{
 		public:
 			/**
 			 * \brief      The beginning node number.
@@ -96,7 +99,8 @@ namespace RVO {
 		/**
 		 * \brief      Defines an obstacle <i>k</i>d-tree node.
 		 */
-		class ObstacleTreeNode {
+		class ObstacleTreeNode
+		{
 		public:
 			/**
 			 * \brief      The left obstacle tree node.
@@ -138,7 +142,7 @@ namespace RVO {
 		void buildObstacleTree();
 
 		ObstacleTreeNode *buildObstacleTreeRecursive(const std::vector<Obstacle *> &
-													 obstacles);
+														 obstacles);
 
 		/**
 		 * \brief      Computes the agent neighbors of the specified agent.

@@ -43,17 +43,19 @@
 
 #include "Export.h"
 
-namespace RVO {
+namespace RVO
+{
 	/**
 	 * \brief      Defines a two-dimensional vector.
 	 */
-	class RVO_EXPORT Vector2 {
+	class RVO_EXPORT Vector2
+	{
 	public:
 		/**
 		 * \brief      Constructs and initializes a two-dimensional vector instance
 		 *             to (0.0, 0.0).
 		 */
-		inline Vector2() : x_(0.0f), y_(0.0f) { }
+		inline Vector2() : x_(0.0f), y_(0.0f) {}
 
 		/**
 		 * \brief      Constructs and initializes a two-dimensional vector from
@@ -63,7 +65,7 @@ namespace RVO {
 		 * \param      y               The y-coordinate of the two-dimensional
 		 *                             vector.
 		 */
-		inline Vector2(float x, float y) : x_(x), y_(y) { }
+		inline Vector2(float x, float y) : x_(x), y_(y) {}
 
 		/**
 		 * \brief      Returns the x-coordinate of this two-dimensional vector.

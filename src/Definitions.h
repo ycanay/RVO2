@@ -51,7 +51,8 @@
  */
 const float RVO_EPSILON = 0.00001f;
 
-namespace RVO {
+namespace RVO
+{
 	class Agent;
 	class Obstacle;
 	class RVOSimulator;
@@ -70,13 +71,16 @@ namespace RVO {
 	{
 		const float r = ((c - a) * (b - a)) / absSq(b - a);
 
-		if (r < 0.0f) {
+		if (r < 0.0f)
+		{
 			return absSq(c - a);
 		}
-		else if (r > 1.0f) {
+		else if (r > 1.0f)
+		{
 			return absSq(c - b);
 		}
-		else {
+		else
+		{
 			return absSq(c - (a + r * (b - a)));
 		}
 	}
