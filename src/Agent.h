@@ -86,6 +86,20 @@ namespace RVO {
 		 */
 		void update();
 
+		/**
+		 * @brief Create obstacle ORCA lines 
+		 * 
+		 * @param invTimeHorizonObst time horizon for obstacles
+		 */
+		void createOrcaLinesObst(const float invTimeHorizonObst);
+
+		/**
+		 * @brief Create agent ORCA lines
+		 * 
+		 * @param invTimeHorizon time horizon for agents
+		 */
+		void createOrcaLinesAgent(const float invTimeHorizon);
+
 		std::vector<std::pair<float, const Agent *> > agentNeighbors_;
 		size_t maxNeighbors_;
 		float maxSpeed_;
