@@ -1,5 +1,6 @@
 # -*- mode: gitignore; -*-
 # vi: set ft=gitignore:
 
-/_build/
+/build/
 /bazel-*
+/.vscode
