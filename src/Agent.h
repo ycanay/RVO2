@@ -144,6 +144,7 @@ namespace RVO
 	 * \relates    Agent
 	 * \brief      Solves a two-dimensional linear program subject to linear
 	 *             constraints defined by lines and a circular constraint.
+	 * 			   For each line finds a solution space and returns a feasible solution.
 	 * \param      lines         Lines defining the linear constraints.
 	 * \param      radius        The radius of the circular constraint.
 	 * \param      optVelocity   The optimization velocity.
@@ -158,7 +159,9 @@ namespace RVO
 	/**
 	 * \relates    Agent
 	 * \brief      Solves a two-dimensional linear program subject to linear
-	 *             constraints defined by lines and a circular constraint.
+	 *             constraints defined by lines and a circular constraint
+	 * 			   with moving lines as determinant of point passes through line 
+	 * 			   and direction of line normal until it finds a feasible solution. 
 	 * \param      lines         Lines defining the linear constraints.
 	 * \param      numObstLines  Count of obstacle lines.
 	 * \param      beginLine     The line on which the 2-d linear program failed.

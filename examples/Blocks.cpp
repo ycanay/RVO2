@@ -87,8 +87,8 @@ void setupScenario(RVO::RVOSimulator *sim)
 	 * Add agents, specifying their start position, and store their goals on the
 	 * opposite side of the environment.
 	 */
-	for (size_t i = 0; i < 5; ++i) {
-		for (size_t j = 0; j < 5; ++j) {
+	for (size_t i = 0; i < 2; ++i) {
+		for (size_t j = 0; j < 2; ++j) {
 			sim->addAgent(RVO::Vector2(55.0f + i * 10.0f,  55.0f + j * 10.0f));
 			goals.push_back(RVO::Vector2(-75.0f, -75.0f));
 
